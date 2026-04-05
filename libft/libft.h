@@ -6,7 +6,7 @@
 /*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:26:23 by lcamerly          #+#    #+#             */
-/*   Updated: 2023/10/06 11:22:56 by lcamerly         ###   ########.fr       */
+/*   Updated: 2026/04/04 12:31:10 by lcamerly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *str);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char				*ft_itoa(int n);
+char				*ft_itoa(unsigned long n);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlen(const char *s);

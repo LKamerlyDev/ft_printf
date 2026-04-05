@@ -1,0 +1,6 @@
+.build*
+*.a
+ft_printf_tester/
+a.out
+main.c
+.bonus_built

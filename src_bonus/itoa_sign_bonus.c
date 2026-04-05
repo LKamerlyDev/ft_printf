@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   itoa_sign_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:55:09 by lcamerly          #+#    #+#             */
-/*   Updated: 2026/04/04 12:32:56 by lcamerly         ###   ########.fr       */
+/*   Created: 2026/03/30 16:28:57 by lcamerly          #+#    #+#             */
+/*   Updated: 2026/04/05 07:21:49 by lcamerly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static char	*ft_case_zero(char *dest)
+static unsigned int	ft_abs(int nb)
 {
-	dest = malloc(sizeof(char) * 2);
-	if (!dest)
-		return (NULL);
-	dest[0] = '0';
-	dest[1] = '\0';
-	return (dest);
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }
 
-static char	*tab_writing(int nb, unsigned int n, int index, char *dest)
+static char	*tab_writing_with_sign(int nb, unsigned int n, int index,
+		char *dest)
 {
 	if (nb < 0)
 		dest[0] = '-';
+	else
+		dest[0] = '+';
 	dest[index--] = '\0';
 	while (n > 9)
 	{
@@ -36,17 +36,21 @@ static char	*tab_writing(int nb, unsigned int n, int index, char *dest)
 	return (dest);
 }
 
-static unsigned int	ft_abs(long nb)
+static char	*ft_case_zero(char *dest)
 {
-	if (nb < 0)
-		return (-nb);
-	return (nb);
+	dest = malloc(sizeof(char) * 3);
+	if (!dest)
+		return (NULL);
+	dest[0] = '+';
+	dest[1] = '0';
+	dest[2] = '\0';
+	return (dest);
 }
 
-char	*ft_itoa(unsigned long nb)
+char	*ft_itoa_with_sign(long nb)
 {
-	unsigned long	nb_count;
-	unsigned long	n;
+	unsigned int	nb_count;
+	unsigned int	n;
 	int				i;
 	char			*dest;
 
@@ -63,16 +67,8 @@ char	*ft_itoa(unsigned long nb)
 		nb_count = nb_count / 10;
 		i++;
 	}
-	dest = malloc(sizeof(char) * (i + 1));
+	dest = malloc(sizeof(char) * (i + 2));
 	if (!dest)
 		return (NULL);
-	return (tab_writing(nb, n, i, dest));
+	return (tab_writing_with_sign(nb, n, i + 1, dest));
 }
-/*
-int	main(void)
-{
-	#include <stdio.h>
-	for (int i = 0; i < 14567890; i + i + 1)
-		printf("%s\n", ft_itoa(i));
-
-}*/
