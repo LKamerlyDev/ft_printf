@@ -10,7 +10,6 @@ DIR_BUILD_BONUS = .build_bonus/
 DEPS_FLAGS = -MMD -MP
 CFLAGS = -Wall -Werror -Wextra -g3
 RM = rm -rf
-LIBS = -Llibft -l:libft.a
 DIR_INCS = includes/ libft/
 INCLUDES = $(addprefix -I, $(DIR_INCS))
 LIBFT_OBJS = $(patsubst %.c, libft/$(DIR_BUILD)%.o, $(SRCS_LIBFT))
