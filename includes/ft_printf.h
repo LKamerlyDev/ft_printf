@@ -6,7 +6,7 @@
 /*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:09:26 by lcamerly          #+#    #+#             */
-/*   Updated: 2026/04/05 18:10:26 by lcamerly         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:47:46 by lcamerly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		ft_process_type(char c, ssize_t *count, t_flag *flags,
 void		ft_process_width(const char **c, t_flag *flags);
 void		ft_procest_flags(const char **c, t_flag *flags);
 int			ft_process_precision(const char **c, t_flag *flags);
-int			putnbr_base(unsigned long n, char *buffer, int idx,
+int			putnbr_base(unsigned long long n, char *buffer, int idx,
 				const char *base);
 char		*ft_itoa_with_sign(long nb);
 char		*ft_handle_zero_precision(char *str);

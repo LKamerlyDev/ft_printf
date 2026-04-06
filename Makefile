@@ -44,14 +44,6 @@ $(DIR_BUILD_BONUS)%.o: $(SRC_BONUS_PATH)%.c
 	@mkdir -p $(shell dirname $@)
 	$(CC) $(CFLAGS) $(DEPS_FLAGS) $(LIBS) $(INCLUDES) -c $< -o $@
 
-test: $(NAME)
-	if [ ! -d "ft_printf_tester" ]; then \
-		git clone https://github.com/paulo-santana/ft_printf_tester.git; \
-	fi
-	cd ./ft_printf_tester && \
-	sed -i 's/make -C $${LIBFTPRINTF_DIR}$$/make -C $${LIBFTPRINTF_DIR} bonus/' Makefile && \
-	sh ./test a
-
 clean:
 	$(RM) $(DIR_BUILD) $(DIR_BUILD_BONUS)
 
@@ -66,7 +58,5 @@ fclean: fclean_bonus fclean_non_bonus
 re: fclean all
 
 .PHONY: all clean fclean fclean_bonus fclean_non_bonus re libft bonus test test_bonus main diff
-
-
 
 # for f in src/*.c; do diff "$f" "src_bonus/$(basename ${f%.c})_bonus.c"; done

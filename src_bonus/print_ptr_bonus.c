@@ -6,13 +6,13 @@
 /*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 10:49:18 by lcamerly          #+#    #+#             */
-/*   Updated: 2026/04/06 09:15:46 by lcamerly         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:54:04 by lcamerly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	putnbr_base(unsigned long n, char *buffer, int idx, const char *base)
+int	putnbr_base(unsigned long long n, char *buffer, int idx, const char *base)
 {
 	size_t	base_len;
 
@@ -23,14 +23,14 @@ int	putnbr_base(unsigned long n, char *buffer, int idx, const char *base)
 	return (++idx);
 }
 
-int	putnbr_base_signed(long n, char *buffer, int idx, const char *base)
+int	putnbr_base_signed(long long n, char *buffer, int idx, const char *base)
 {
 	if (n < 0)
 	{
 		buffer[idx++] = '-';
 		n = -n;
 	}
-	return (putnbr_base((unsigned long)n, buffer, idx, base));
+	return (putnbr_base((unsigned long long)n, buffer, idx, base));
 }
 
 size_t	ft_print_ptr(t_flag *flags, void *ptr)

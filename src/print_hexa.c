@@ -6,13 +6,13 @@
 /*   By: lcamerly <lcamerly@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/05 05:41:18 by lcamerly          #+#    #+#             */
-/*   Updated: 2026/04/05 17:41:55 by lcamerly         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:11:06 by lcamerly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_set_prefix(char *str, t_flag *flags, unsigned int arg,
+static int	ft_set_prefix(char *str, t_flag *flags, unsigned long long arg,
 		const char *prefix)
 {
 	if (flags->hashtag && arg != 0)
@@ -41,7 +41,7 @@ char	*ft_hexa_build_str(t_flag *flags, unsigned long long arg,
 	return (str);
 }
 
-static ssize_t	ft_print_hexa_core(t_flag *flags, unsigned int arg,
+static ssize_t	ft_print_hexa_core(t_flag *flags, unsigned long long arg,
 		const char *prefix, const char *base)
 {
 	ssize_t	count;
