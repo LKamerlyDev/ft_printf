@@ -1,7 +1,68 @@
 NAME = libftprintf.a
-include libft/libft.mk
-include ft_printf.mk
--include $(DEPS) $(DEPS_BONUS)
+
+SRCS	= ft_printf.c	\
+			print_functions.c \
+			print_ptr.c \
+			padding.c \
+			itoa_sign.c \
+			args_process.c \
+			print_hexa.c \
+			write.c \
+			print_digit.c \
+
+SRCS_BONUS	= ft_printf_bonus.c	\
+			print_functions_bonus.c \
+			print_ptr_bonus.c \
+			padding_bonus.c \
+			itoa_sign_bonus.c \
+			args_process_bonus.c \
+			print_hexa_bonus.c \
+			write_bonus.c \
+			print_digit_bonus.c 
+
+SRCS_LIBFT =	ft_atoi.c	\
+				ft_bzero.c \
+				ft_isalnum.c \
+				ft_isalpha.c \
+				ft_isascii.c \
+				ft_isdigit.c \
+				ft_isprint.c \
+				ft_itoa.c \
+				ft_memset.c \
+				ft_putchar_fd.c \
+				ft_putendl_fd.c \
+				ft_putnbr_fd.c \
+				ft_strchr.c \
+				ft_striteri.c \
+				ft_putstr_fd.c \
+				ft_strdup.c \
+				ft_strjoin.c \
+				ft_strlcat.c \
+				ft_strlcpy.c \
+				ft_strlen.c \
+				ft_strmapi.c \
+				ft_strncmp.c \
+				ft_strnstr.c \
+				ft_strrchr.c \
+				ft_strtrim.c \
+				ft_substr.c \
+				ft_tolower.c \
+				ft_toupper.c \
+				ft_calloc.c \
+				ft_memchr.c \
+				ft_memcmp.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_split.c \
+				ft_lstadd_back.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstlast.c \
+				ft_lstmap.c \
+				ft_lstnew.c \
+				ft_lstsize.c
 CC = cc
 SRC_PATH = src/
 SRC_BONUS_PATH = src_bonus/
@@ -17,6 +78,8 @@ OBJS = $(patsubst %.c, $(DIR_BUILD)%.o, $(SRCS))
 DEPS = $(patsubst %.c, $(DIR_BUILD)%.d, $(SRCS))
 OBJS_BONUS = $(patsubst %.c, $(DIR_BUILD_BONUS)%.o, $(SRCS_BONUS))
 DEPS_BONUS = $(patsubst %.c, $(DIR_BUILD_BONUS)%.d, $(SRCS_BONUS))
+-include $(DEPS) $(DEPS_BONUS)
+
 
 all: fclean_bonus libft $(NAME)
 bonus: fclean_non_bonus libft .bonus_built
